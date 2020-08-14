@@ -115,7 +115,8 @@ Send request to the server using curl or postman: `curl GET "http://localhost:90
 {
     "validationError": {
         "email": [
-            "The email has already been taken"
+            "The email has already been taken",
+	    "The selected email is invalid"
         ]
     }
 }
