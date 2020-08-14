@@ -51,7 +51,7 @@ func (r *UniqueRule) Rule(field string, rule string, message string, value inter
 			return errors.New(message)
 		}
 
-		return fmt.Errorf("The %s does not exists", field)
+		return fmt.Errorf("The selected %s is invalid", field)
 	}
 
 	return nil
