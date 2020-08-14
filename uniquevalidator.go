@@ -21,6 +21,7 @@ func (r *UniqueRule) Rule(field string, rule string, message string, value inter
 	query := `SELECT COUNT(*) as total FROM %s WHERE %s = ?`
 	params := strings.Split(strings.TrimPrefix(rule, fmt.Sprintf("%s:", r.ruleName)), ",")
 
+
 	if len(params) == 2 {
 		query = fmt.Sprintf(query, params[0], params[1])
 		queryRow = r.db.QueryRow(query, value)
@@ -37,12 +38,20 @@ func (r *UniqueRule) Rule(field string, rule string, message string, value inter
 		return err
 	}
 
-	if total > 0 {
+	if total > 0 && r.ruleName == "unique" {
 		if message != "" {
 			return errors.New(message)
 		}
 
 		return fmt.Errorf("The %s has already been taken", field)
+	}
+
+	if total == 0 && r.ruleName == "exists" {
+		if message != "" {
+			return errors.New(message)
+		}
+
+		return fmt.Errorf("The %s does not exists", field)
 	}
 
 	return nil
