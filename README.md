@@ -1,6 +1,6 @@
-# go-unique-validator
+# go-unique-exists-validator
 
-Unique validator extensions for [thedevsaddam/govalidator](https://github.com/thedevsaddam/govalidator). Inspired by Laravel's unique validation rule.
+Unique, Exists validator extensions for [thedevsaddam/govalidator](https://github.com/thedevsaddam/govalidator). Inspired by Laravel's unique validation rule.
 
 ## Installation
 
@@ -97,7 +97,9 @@ func main() {
 	defer db.Close()
 
 	uniqueRule := uniquevalidator.NewUniqueRule(db, "unique")
+	existsRule := uniquevalidator.NewUniqueRule(db, "exists")
 	govalidator.AddCustomRule("unique", uniqueRule.Rule)
+	govalidator.AddCustomRule("exists", existsRule.Rule)
 
 	http.HandleFunc("/", handler)
 	fmt.Println("Listening on port: 9000")
