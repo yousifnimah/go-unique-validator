@@ -15,7 +15,7 @@ go get github.com/ramadani/go-unique-validator
 Import this package to your code
 
 ```go
-import uniquevalidator "github.com/ramadani/go-unique-validator"
+import uniquevalidator "github.com/yousifnimah/go-unique-exists-validator"
 ```
 
 Create db instance
