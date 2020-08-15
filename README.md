@@ -7,7 +7,7 @@ Unique, Exists validator extensions for [thedevsaddam/govalidator](https://githu
 Before use this validator, you need to install [thedevsaddam/govalidator](https://github.com/thedevsaddam/govalidator) first, and then install this package.
 
 ```cmd
-go get github.com/yousifnimah/go-unique-exists-validator
+go get github.com/ramadani/go-unique-validator
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ go get github.com/yousifnimah/go-unique-exists-validator
 Import this package to your code
 
 ```go
-import uniquevalidator "github.com/yousifnimah/go-unique-exists-validator"
+import uniquevalidator "github.com/ramadani/go-unique-validator"
 ```
 
 Create db instance
